@@ -47,7 +47,7 @@ async function createBrowserInstance() {
 
 async function extractWithConfig(page, config) {
     try {
-        await page.waitForSelector(config.events, { timeout: 10000 });
+        await page.waitForSelector(config.events, { timeout: 120000 });
         if (page.isClosed()) throw new Error("Page closed before extraction");
         
         const trackingEvents = await page.evaluate(cfg => {
