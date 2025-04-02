@@ -39,7 +39,6 @@ function getRandomUserAgent() {
 
 async function createBrowserInstance() {
     return await chromium.launch({
-		executablePath: '/opt/render/.cache/ms-playwright/chromium-1161/chrome-linux/chrome',
         headless: true,
         args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
         timeout: BROWSER_LAUNCH_TIMEOUT
