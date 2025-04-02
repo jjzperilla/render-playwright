@@ -3,17 +3,7 @@ const { chromium } = require("playwright-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth")();
 const cors = require("cors");
 
-const fs = require('fs');
-const path = '/opt/render/.cache/ms-playwright/';
 
-// List all files inside Playwright cache directory
-fs.readdir(path, (err, files) => {
-    if (err) {
-        console.error('Error reading directory:', err);
-    } else {
-        console.log('Installed Playwright files:', files);
-    }
-});
 
 
 // Apply stealth plugin
