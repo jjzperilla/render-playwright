@@ -3,12 +3,21 @@ FROM node:bullseye
 
 # Install necessary dependencies for Playwright
 RUN apt-get update && apt-get install -y \
-    libgtk-4-1 \
-    libavif-dev \
-    libenchant-2-2 \
+    # Playwright dependencies
+    libgtk-3-0 \
+    libgles2 \
+    libnotify4 \
+    libnss3 \
+    libxss1 \
+    libxtst6 \
+    xdg-utils \
+    libatspi2.0-0 \
+    libuuid1 \
     libsecret-1-0 \
+    libenchant-2-2 \
+    # Your additional dependencies
+    libavif-dev \
     libmanette-0.2-0 \
-    libGLESv2-2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory inside the container
