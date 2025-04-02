@@ -1,6 +1,7 @@
-# Use a Playwright-ready image
+# Use Playwright's official image with dependencies
 FROM mcr.microsoft.com/playwright:v1.39.0-focal
 
+# Set working directory
 WORKDIR /app
 
 # Copy package files and install dependencies
@@ -10,8 +11,8 @@ RUN npm install
 # Copy project files
 COPY . .
 
-# Expose necessary port
+# Expose a port (change if needed)
 EXPOSE 3000
 
-# Start the application
+# Start the application (adjust if needed)
 CMD ["node", "index.js"]
