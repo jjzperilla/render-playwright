@@ -1,31 +1,20 @@
-# Use an official Node.js runtime as a parent image
-FROM node:18-slim
+# Use a Node.js base image
+FROM mcr.microsoft.com/playwright:v1.39.0-focal
 
-# Install necessary libraries
-RUN apt-get update && apt-get install -y \
-    libgtk-4-1 \
-    libgraphene-1.0-0 \
-    libgstreamer1.0-0 \
-    libgstreamer-plugins-base1.0-0 \
-    libavif15 \
-    libenchant-2-2 \
-    libsecret-1-0 \
-    libmanette-0.2-0 \
-    libgles2 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy the rest of your application files
+# Copy the rest of your app files
 COPY . .
 
-# Install Playwright browsers
-RUN PLAYWRIGHT_BROWSERS_PATH=./browsers npx playwright install
+# Expose the necessary port
+EXPOSE 3000
 
-# Command to run your app
-CMD ["npm", "start"]
+# Start the app
+CMD ["node", "index.js"]

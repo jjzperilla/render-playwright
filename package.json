@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-"install-playwright": "npx playwright install chromium --with-deps",
+"install": "npx playwright install --with-deps",
     "start": "node index.js"
   },
   "dependencies": {
