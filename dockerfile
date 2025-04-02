@@ -1,5 +1,5 @@
 # Use the node:16-buster image as a base
-FROM node:alpine
+FROM node:bullseye
 
 # Install necessary dependencies for Playwright
 RUN apt-get update && apt-get install -y \
