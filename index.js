@@ -125,7 +125,7 @@ async function processQueue() {
   // Wait 30 seconds before moving to next in queue
   setTimeout(() => {
     processQueue();
-  }, 30000);
+  }, 5000);
 }
 
 app.get("/api/track", async (req, res) => {
